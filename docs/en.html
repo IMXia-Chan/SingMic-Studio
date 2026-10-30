@@ -6,11 +6,12 @@
 <title>SingMic Studio Pro Privacy Policy</title>
 <style>
   :root { color-scheme: light dark; }
-  body { margin: 0; font: 16px/1.75 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  body { margin: 0; font: 16px/1.75 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
          color: #1a1a1a; background: #fff; }
   main { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
   h1 { font-size: 28px; margin: 0 0 10px; }
   h2 { font-size: 19px; margin: 36px 0 12px; padding-top: 10px; border-top: 1px solid #e8e8e8; }
+  h3 { font-size: 16px; margin: 22px 0 8px; }
   .meta { color: #666; font-size: 14px; margin: 0 0 28px; }
   .meta span { display: block; }
   ul { padding-left: 22px; }
@@ -30,62 +31,129 @@
 </head>
 <body>
 <main>
-<p class="lang"><a href="index.html">中文</a></p>
+<p class="lang"><a href="index.html">简体中文</a></p>
 
 <h1>SingMic Studio Pro Privacy Policy</h1>
 <p class="meta">
-  <span>Effective date: 2026-10-22</span>
-  <span>Applies to: SingMic Studio Pro 1.0 and later</span>
+  <span>Effective date: 2026-10-30</span>
+  <span>Applies to: SingMic Studio Pro 1.0 and later (including the Plug-in Host package)</span>
   <span>Developer and publisher: IMXia-Chan</span>
 </p>
-<p>SingMic Studio Pro is listed on the Microsoft Store as <strong>声麦 Studio Pro</strong>.</p>
 
-<h2>1. Summary</h2>
-<p>SingMic Studio Pro is a recording and mixing application that runs entirely on the user's own computer. It has <strong>no user accounts, no usage analytics, and no telemetry</strong>. This policy describes what data the application touches, where it is stored, and when it may leave the device.</p>
+<p>This policy is written to meet <strong>Microsoft Store Policy 10.5 (Personal Information)</strong>. It states, item by item: what personal information the Software accesses, collects and transmits; how that information is used, stored and secured; the types of parties to whom it is disclosed; the controls users have; and how users may access their own information.</p>
 
-<h2>2. Data that stays on the device</h2>
-<p>The following is stored locally only, and is never uploaded, synced, or backed up to any server:</p>
+<h2>1. Scope</h2>
+<p>SingMic Studio Pro (the “Software”) is a recording, tuning and mixing application that runs on the user's own computer and is distributed as an MSIX Desktop Bridge (Win32) package. This policy covers the main application and the companion <em>Plug-in Host</em> package described in section 9.</p>
+<p>The Software <strong>does not operate any server</strong>. There is no cloud storage for user data and no account system.</p>
+
+<h2>2. Information the Software accesses, collects and transmits</h2>
+
+<h3>2.1 Information the Software does not collect</h3>
 <ul>
-  <li>Recordings, imported audio, generated backing tracks, and exported files;</li>
-  <li>Project files, media library index, and render cache;</li>
-  <li>Interface language, shortcuts, and preferences;</li>
-  <li>Any API key entered by the user (stored under <code>%USERPROFILE%\.singmic\</code> and readable only by local processes).</li>
+  <li>no user accounts, no registration, and no collection of names, phone numbers, email addresses or any identity information;</li>
+  <li>no device identifiers, hardware information or installation identifiers;</li>
+  <li>no usage statistics, feature-click records or session durations;</li>
+  <li>no telemetry, crash reporting, advertising or third-party analytics SDK of any kind;</li>
+  <li>no access to contacts, messages, location, calendar or the clipboard;</li>
+  <li>no access to the camera.</li>
 </ul>
-<p>The installed application stores data in <code>%LOCALAPPDATA%\SingMic\data</code>. Uninstalling does not automatically remove this folder; the user may delete it.</p>
 
-<h2>3. Microphone</h2>
-<p>The application accesses the microphone when the user starts recording or enables pitch and tempo analysis. Audio is written to local files only and is not transmitted. Microphone access is always initiated by an explicit user action; the application does not record in the background.</p>
+<h3>2.2 Information accessed on the device and never transmitted</h3>
+<p>To record and mix, the Software accesses the following when the user acts. It is processed <strong>only in local memory and local files</strong> and is not sent to any server:</p>
+<ul>
+  <li><strong>Audio captured from the microphone</strong>: accessed only when the user starts recording or enables pitch detection and beat analysis; the Software does not record continuously in the background;</li>
+  <li><strong>Audio and project files the user imports or selects</strong>: chosen by the user in the system file picker; the Software does not scan files unrelated to the current project;</li>
+  <li><strong>The list and names of audio input and output devices</strong>: used to select recording and playback devices;</li>
+  <li><strong>The user's VST3 plug-in folders</strong>: read only when the user uses the plug-in feature.</li>
+</ul>
 
-<h2>4. Network features</h2>
-<p>The application works without a network connection. The features below are <strong>initiated by the user</strong> and use only services and keys that the user configures:</p>
+<h3>2.3 Information that leaves the device</h3>
+<p>The Software needs no network connection by default. The features below are triggered <strong>by the user</strong> and use only services and keys configured by the user:</p>
 <table>
-  <thead><tr><th>Feature</th><th>Data sent</th><th>Recipient</th></tr></thead>
+  <thead><tr><th>Feature</th><th>What is sent</th><th>Recipient</th></tr></thead>
   <tbody>
-    <tr><td>AI accompaniment generation</td><td>The style description, lyrics, duration, and key entered by the user</td><td>The AI music platform the user selected and configured with their own API key</td></tr>
-    <tr><td>Mixing assistant (natural-language parameter control)</td><td>The user's instruction, plus <strong>track and clip parameters</strong> from the project (gain, pan, plug-in settings, pitch offsets)</td><td>The DeepSeek endpoint configured by the user</td></tr>
-    <tr><td>Voice extension</td><td><strong>The audio segment the user selected</strong> (15 seconds or less)</td><td>The inference server the user set up (runs locally when none is configured)</td></tr>
+    <tr><td>AI backing-track generation</td><td>the style description, lyrics, duration and key entered by the user</td><td>the platform the user selects and configures with their own API key</td></tr>
+    <tr><td>Mixing assistant (natural-language parameter tuning)</td><td>one sentence typed by the user, plus <strong>track and clip parameters</strong> in the project (gain, pan, plug-in parameters, pitch offset, etc.)</td><td>the DeepSeek endpoint configured by the user</td></tr>
+    <tr><td>Personal voice conversion</td><td><strong>the audio segment selected by the user</strong> (15 seconds or less)</td><td>the inference server set up by the user (runs locally when not configured)</td></tr>
+    <tr><td>Model download</td><td>nothing (a download request only)</td><td>public download location (see section 10)</td></tr>
   </tbody>
 </table>
-<p>Explicitly not sent: full songs, audio from other tracks, file paths, file names, project names, or any device identifier. If a service is not configured, its feature is unavailable and the application does not connect to any server on its own.</p>
-<p>AI accompaniment generation and the mixing assistant forward content to third-party platforms, whose own privacy policies apply to that processing.</p>
+<p><strong>Never sent</strong>: full songs, audio from other tracks, project files, file paths, file names, project names, or any identifier relating to the device. If the user has not configured the corresponding service, these features are unavailable and the Software will not contact any server on its own.</p>
 
-<h2>5. Models</h2>
-<p>Speech recognition and AI noise reduction use local models. Model files are downloaded from public sources after user confirmation, and the download carries no user data.</p>
+<h2>3. How information is used</h2>
+<p>Information that leaves the device has exactly one purpose: <strong>to fulfil the single request the user has just initiated</strong> — to generate a backing track from the description and lyrics the user supplied; to adjust mix parameters from the user's sentence and parameter values; to convert the timbre of one audio segment. It is not used for anything else: not for model training, not for profiling, not for advertising, and not combined with data from other sources.</p>
+<p>Audio and project data on the device are used only for the user's own editing, rendering and export.</p>
 
-<h2>6. Children</h2>
-<p>The application does not knowingly collect any information from children and has no account system.</p>
-
-<h2>7. Deleting data</h2>
-<p>Deleting project files, media files, or the entire data folder removes the corresponding data. The application keeps no copy of user data on any server.</p>
-
-<h2>8. Changes</h2>
-<p>Changes to this policy will be published with a software update, and the effective date on this page will be revised.</p>
-
-<h2>9. Contact</h2>
+<h2>4. How information is stored and how long it is kept</h2>
 <ul>
-  <li>Project home: <a href="https://github.com/IMXia-Chan">https://github.com/IMXia-Chan</a></li>
+  <li>Recordings, imported audio, project files, render cache and preferences: stored in the local data directory <code>%LOCALAPPDATA%\SingMic\data</code> and kept until the user deletes them;</li>
+  <li>API keys entered by the user: stored in plain text in <code>%USERPROFILE%\.singmic\</code>, also kept until the user deletes them;</li>
+  <li>Diagnostic logs written when the program crashes: written to the local data directory only, never uploaded, deletable at any time;</li>
+  <li>The Software operates no servers and <strong>keeps no copy of user data on any server</strong>, so there is no server-side retention period.</li>
+</ul>
+<p>Uninstalling the Software does not delete these directories, so that projects and recordings are preserved. To remove everything, delete both directories manually.</p>
+
+<h2>5. How information is protected</h2>
+<ul>
+  <li>The Software has no server-side component, so user data never exists in a cloud and there is no server-side surface to be breached;</li>
+  <li>User data is stored under the current Windows user profile and protected by operating-system account permissions; please protect your system account;</li>
+  <li>API keys are stored in plain text in the directory above and can be read by other programs running as the same Windows user. The Software does not implement its own key vault; we recommend a sign-in password and keeping Windows up to date;</li>
+  <li>Transport encryption for third-party services is determined by those services (mainstream services use HTTPS). For a server address the user enters themselves, the user is responsible for its security.</li>
+</ul>
+
+<h2>6. Types of third parties to whom information is disclosed</h2>
+<p>The Software <strong>does not sell, rent or share</strong> user data. The only disclosure is the set of requests listed in section 2.3, each triggered by the user:</p>
+<ul>
+  <li><strong>the AI platform the user selects</strong> (for backing-track generation);</li>
+  <li><strong>the language-model endpoint the user configures</strong> (for the mixing assistant's parameter conversion);</li>
+  <li><strong>the inference server the user sets up</strong> (for voice conversion; data stays on the device when none is configured);</li>
+  <li><strong>public model download locations</strong> (a download request only, carrying no user data).</li>
+</ul>
+<p>All of these are <strong>chosen and configured by the user</strong>. The Software does not proxy, relay or register accounts on the user's behalf. Those services process data under their own privacy policies and terms. If a service the user chooses is located outside their country or region, the relevant data will be transferred internationally as part of that request, initiated and decided by the user.</p>
+
+<h2>7. User controls</h2>
+<ul>
+  <li><strong>Network</strong>: with no API key and no server address configured, the Software has no network functionality and does not attempt to connect;</li>
+  <li><strong>Per-feature control</strong>: every network feature is triggered individually in the UI; nothing connects in the background;</li>
+  <li><strong>Microphone</strong>: opened only when the user starts recording or enables analysis, and can be stopped at any time;</li>
+  <li><strong>Local-only option</strong>: personal voice conversion runs on the device by default when no server is configured and sends no audio;</li>
+  <li><strong>Withdrawal and erasure</strong>: deleting the local data directories removes all local data; removing an API key from Settings withdraws authorisation for that service.</li>
+</ul>
+
+<h2>8. How users may access their information</h2>
+<p>All data is on the device and the user can view, copy and export it at any time:</p>
+<ul>
+  <li>recordings, projects and exports: open the data directory in File Explorer;</li>
+  <li>settings and API keys: view them in <em>Settings</em> inside the Software, or read the files under <code>%USERPROFILE%\.singmic\</code>;</li>
+  <li>because there is no server-side storage, there is no need to apply to the developer for access to or export of data.</li>
+</ul>
+
+<h2>9. Plug-in Host package</h2>
+<p>VST3 plug-in support is provided by a separate <em>Plug-in Host</em> package. It is installed and runs independently of the main application, as its own program.</p>
+<ul>
+  <li>it reads and writes audio and plug-in files locally only; <strong>it does not use the network and collects no information</strong>;</li>
+  <li>the main application does not start it unless plug-ins are loaded;</li>
+  <li>if the package is not installed, all other features of the main application keep working;</li>
+  <li>it is distributed under GPL-3.0, and its complete corresponding source code is included with the package.</li>
+</ul>
+
+<h2>10. Models and downloads</h2>
+<p>Speech recognition and AI noise reduction use models that run on the device. After the user confirms, model files are fetched from a public download location and saved to the local data directory. The download request contains only the file request itself — no user data, no recordings and no identifiers.</p>
+<p>Distribution of and updates to the application itself are provided by the Microsoft Store. The Plug-in Host package and related documents are published in the project's public repository at
+<a href="https://github.com/IMXia-Chan/SingMic-Studio">github.com/IMXia-Chan/SingMic-Studio</a>.</p>
+
+<h2>11. Children</h2>
+<p>The Software does not collect any information from children, and it has no account system or content-publishing features.</p>
+
+<h2>12. Legal compliance and changes to this policy</h2>
+<p>This policy is written in accordance with applicable law and Microsoft Store policy. When the Software adds features or changes how it handles data, this policy is updated accordingly and a new effective date is shown on this page; any change that expands the scope of data collection is called out separately in the release notes.</p>
+
+<h2>13. Contact</h2>
+<p>For questions about this policy, or to exercise the rights described above:</p>
+<ul>
+  <li>Project home: <a href="https://github.com/IMXia-Chan/SingMic-Studio">https://github.com/IMXia-Chan/SingMic-Studio</a></li>
   <li>Support email: <a href="mailto:singmic.studio@foxmail.com">singmic.studio@foxmail.com</a></li>
-  <li>Microsoft Store listing: leave a review or a message on the store page for 声麦 Studio Pro</li>
+  <li>Microsoft Store listing: leave a message or review on the SingMic Studio Pro store page</li>
 </ul>
 
 </main>
